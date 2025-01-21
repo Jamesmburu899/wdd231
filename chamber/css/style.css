@@ -1,175 +1,177 @@
+/* General Styles */
 body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-    line-height: 1.6;
-    color: #333;
-    background-color: #f9f9f9;
-  }
-  
-  .container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-  
-  /* Header Styles */
-  header {
-    background-color: #2c3e50; /* Dark blue */
-    color: #fff;
-    padding: 1.5em 0;
-    text-align: center;
-  }
-  
-  header h1 {
-    margin: 0;
-    font-size: 2.5em;
-  }
-  
-  /* Navigation Styles */
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  color: #333;
+  background-color: #f9f9f9;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Header Styles */
+header {
+  background-color: #2c3e50; /* Dark blue */
+  color: #fff;
+  padding: 1.5em 0;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2.5em;
+}
+
+/* Navigation Styles */
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-around; /* Evenly space items */
+  background-color: #34495e; /* Slightly lighter blue */
+  padding: 10px 0;
+}
+
+nav li {
+  flex: 1; /* Equal space for each item */
+  text-align: center;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  display: block;
+  padding: 10px 0;
+  transition: background-color 0.3s ease;
+}
+
+nav a:hover {
+  background-color: #1abc9c; /* Teal for hover */
+}
+
+nav a.active {
+  background-color: #16a085; /* Darker teal for active link */
+}
+
+/* Main Content Styles */
+main {
+  padding: 2em 0;
+}
+
+.view-toggle {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.view-toggle button {
+  padding: 10px 20px;
+  margin: 0 5px;
+  border: none;
+  background-color: #3498db; /* Blue */
+  color: #fff;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.view-toggle button.active {
+  background-color: #2980b9; /* Darker blue */
+}
+
+.view-toggle button:hover {
+  background-color: #1abc9c; /* Teal */
+}
+
+#directory {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+#directory.list {
+  display: block;
+}
+
+.member-card {
+  background-color: #fff;
+  padding: 1.5em;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.member-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.member-card h2 {
+  margin-top: 0;
+  font-size: 1.5em;
+  color: #2c3e50; /* Dark blue */
+}
+
+.member-card p {
+  margin: 10px 0;
+  color: #555;
+}
+
+.member-card img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 2; /* Adjust based on your image dimensions */
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+.member-card a {
+  color: #3498db; /* Blue */
+  text-decoration: none;
+}
+
+.member-card a:hover {
+  text-decoration: underline;
+}
+
+/* Footer Styles */
+footer {
+  background-color: #2c3e50; /* Dark blue */
+  color: #fff;
+  padding: 1.5em 0;
+  text-align: center;
+  margin-top: 20px;
+}
+
+footer p {
+  margin: 5px 0;
+}
+
+/* Responsive Design */
+@media only screen and (max-width: 768px) {
   nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: space-around; /* Evenly space items */
-    background-color: #34495e; /* Slightly lighter blue */
-    padding: 10px 0;
+    flex-direction: column; /* Stack items vertically on small screens */
   }
-  
+
   nav li {
-    flex: 1; /* Equal space for each item */
-    text-align: center;
-  }
-  
-  nav a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
-    display: block;
-    padding: 10px 0;
-    transition: background-color 0.3s ease;
-  }
-  
-  nav a:hover {
-    background-color: #1abc9c; /* Teal for hover */
-  }
-  
-  nav a.active {
-    background-color: #16a085; /* Darker teal for active link */
-  }
-  
-  /* Main Content Styles */
-  main {
-    padding: 2em 0;
-  }
-  
-  .view-toggle {
-    margin-bottom: 20px;
-    text-align: center;
-  }
-  
-  .view-toggle button {
-    padding: 10px 20px;
-    margin: 0 5px;
-    border: none;
-    background-color: #3498db; /* Blue */
-    color: #fff;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-  }
-  
-  .view-toggle button.active {
-    background-color: #2980b9; /* Darker blue */
-  }
-  
-  .view-toggle button:hover {
-    background-color: #1abc9c; /* Teal */
-  }
-  
-  #directory {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-  }
-  
-  #directory.list {
-    display: block;
-  }
-  
-  .member-card {
-    background-color: #fff;
-    padding: 1.5em;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  
-  .member-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-  }
-  
-  .member-card h2 {
-    margin-top: 0;
-    font-size: 1.5em;
-    color: #2c3e50; /* Dark blue */
-  }
-  
-  .member-card p {
-    margin: 10px 0;
-    color: #555;
-  }
-  
-  .member-card img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 10px;
-    margin-top: 10px;
-  }
-  
-  .member-card a {
-    color: #3498db; /* Blue */
-    text-decoration: none;
-  }
-  
-  .member-card a:hover {
-    text-decoration: underline;
-  }
-  
-  /* Footer Styles */
-  footer {
-    background-color: #2c3e50; /* Dark blue */
-    color: #fff;
-    padding: 1.5em 0;
-    text-align: center;
-    margin-top: 20px;
-  }
-  
-  footer p {
     margin: 5px 0;
   }
-  
-  /* Responsive Design */
-  @media only screen and (max-width: 768px) {
-    nav ul {
-      flex-direction: column; /* Stack items vertically on small screens */
-    }
-  
-    nav li {
-      margin: 5px 0;
-    }
-  
-    #directory {
-      grid-template-columns: repeat(2, 1fr);
-    }
+
+  #directory {
+    grid-template-columns: repeat(2, 1fr);
   }
-  
-  @media only screen and (max-width: 480px) {
-    #directory {
-      grid-template-columns: 1fr;
-    }
+}
+
+@media only screen and (max-width: 480px) {
+  #directory {
+    grid-template-columns: 1fr;
   }
+}
