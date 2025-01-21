@@ -53,4 +53,4 @@ document.getElementById('list-view').addEventListener('click', () => {
 
 // Initialize display
 displayMembers();
-setupViewToggle();
+
