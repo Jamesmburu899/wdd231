@@ -1,52 +1,50 @@
-// Get current year
-const currentYear = new Date().getFullYear();
-document.getElementById('year').innerHTML = currentYear;
+// Revised JavaScript for handling directory data
 
-// Get last modified date
-const lastModified = document.lastModified;
-document.getElementById('last-modified').innerHTML = lastModified;
-
-// Fetch member data from JSON file
+// Function to fetch members.json and handle errors
 async function getMembers() {
   try {
-    const response = await fetch('data/members.json');
-    const members = await response.json();
-    return members;
+      const response = await fetch('data/members.json');
+      if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
+      return await response.json();
   } catch (error) {
-    console.error(error);
+      console.error('Error fetching members:', error);
+      return []; // Return an empty array if an error occurs
   }
 }
 
-// Display member cards
+// Function to display members in the directory
 async function displayMembers() {
   const members = await getMembers();
+
+  // Check if members array is empty
+  if (!members.length) {
+      console.error('No members found');
+      const directory = document.getElementById('directory');
+      directory.innerHTML = '<p>No members to display.</p>';
+      return;
+  }
+
   const directory = document.getElementById('directory');
-  directory.innerHTML = '';
+  directory.innerHTML = ''; // Clear any existing content
+
   members.forEach((member) => {
-    const memberCard = document.createElement('div');
-    memberCard.classList.add('member-card');
-    memberCard.innerHTML = `
-      <h2>${member.name}</h2>
-      <p>${member.address}</p>
-      <p>${member.phone}</p>
-      <p>${member.website}</p>
-      <img src="images/${member.image}" alt="${member.name}">
-    `;
-    directory.appendChild(memberCard);
+      const memberCard = document.createElement('div');
+      memberCard.classList.add('member-card');
+
+      // Member card content
+      memberCard.innerHTML = `
+          <h2>${member.name}</h2>
+          <p>${member.address}</p>
+          <p>${member.phone}</p>
+          <p><a href="${member.website}" target="_blank">${member.website}</a></p>
+          <img src="images/${member.image}" alt="${member.name}">
+      `;
+
+      directory.appendChild(memberCard);
   });
 }
 
-// Toggle view
-document.getElementById('grid-view').addEventListener('click', () => {
-  document.getElementById('directory').classList.add('grid');
-  document.getElementById('directory').classList.remove('list');
-});
-
-document.getElementById('list-view').addEventListener('click', () => {
-  document.getElementById('directory').classList.add('list');
-  document.getElementById('directory').classList.remove('grid');
-});
-
-// Initialize display
+// Initialize the directory display
 displayMembers();
+
 
