@@ -9,7 +9,7 @@ document.getElementById('last-modified').innerHTML = lastModified;
 // Fetch member data from JSON file
 async function getMembers() {
   try {
-    const response = await fetch('Data\members.json');
+    const response = await fetch('data/members.json');
     const members = await response.json();
     return members;
   } catch (error) {
@@ -49,3 +49,4 @@ document.getElementById('list-view').addEventListener('click', () => {
 
 // Initialize display
 displayMembers();
+
