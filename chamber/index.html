@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chamber of Commerce</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <h1>Chamber of Commerce</h1>
+    <nav>
+      <button class="hamburger">&#9776;</button>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="directory.html">Directory</a></li>
+        <li><a href="join.html">Join</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <img src="images/hero.jpg" alt="Cityscape">
+      <a href="join.html" class="cta-button">Join the Chamber</a>
+    </section>
+
+    <!-- Current Events Section -->
+    <section class="current-events">
+      <h2>Current Events</h2>
+      <p>Join us for our annual business fair on October 15th!</p>
+    </section>
+
+    <!-- Weather Section -->
+    <section class="weather">
+      <h2>Weather</h2>
+      <div id="weather-data">
+        <p>Loading weather data...</p>
+      </div>
+    </section>
+
+    <!-- Company Spotlights Section -->
+    <section class="spotlights">
+      <h2>Company Spotlights</h2>
+      <div id="spotlight-cards"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2023 Chamber of Commerce</p>
+    <p id="last-modified"></p>
+  </footer>
+
+  <!-- JavaScript Files -->
+  <script src="js/weather.js"></script>
+  <script src="js/spotlights.js"></script>
+  <script>
+    // Display last modified date
+    document.getElementById('last-modified').textContent = `Last Modified: ${document.lastModified}`;
+  </script>
+</body>
+</html>
