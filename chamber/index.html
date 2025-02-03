@@ -3,20 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chamber of Commerce</title>
-  <link rel="stylesheet" href="css/style.css">
+  <meta name="description" content="Timbuktu Chamber of Commerce Home Page">
+  <meta name="author" content="James Mburu Maina">
+  <meta property="og:title" content="Timbuktu Chamber of Commerce Home Page">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://your-github-username.github.io/wdd231/chamber/images/favicon.png">
+  <meta property="og:url" content="https://your-github-username.github.io/wdd231/chamber/index.html">
+  <title>Timbuktu Chamber of Commerce</title>
+  <link rel="icon" href="images/favicon.png">
+  <link rel="stylesheet" href="styles/styles.css">
 </head>
 <body>
   <header>
-    <h1>Chamber of Commerce</h1>
-    <nav>
-      <button class="hamburger">&#9776;</button>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="directory.html">Directory</a></li>
-        <li><a href="join.html">Join</a></li>
-      </ul>
-    </nav>
+    <div class="container">
+      <h1>Timbuktu Chamber of Commerce</h1>
+      <nav>
+        <ul class="nav">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="discover.html">Discover</a></li>
+          <li><a href="directory.html">Directory</a></li>
+          <li><a href="join.html">Join</a></li>
+          <li><a href="events.html">Events</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
   <main>
@@ -48,16 +58,19 @@
   </main>
 
   <footer>
-    <p>&copy; 2023 Chamber of Commerce</p>
-    <p id="last-modified"></p>
+    <div class="container">
+      <p>&copy; <span id="year"></span> Timbuktu Chamber of Commerce. All Rights Reserved.</p>
+      <p>WDD 231 | Last Updated: <span id="last-modified"></span></p>
+    </div>
   </footer>
 
   <!-- JavaScript Files -->
-  <script src="js/weather.js"></script>
-  <script src="js/spotlights.js"></script>
+  <script src="scripts/weather.js"></script>
+  <script src="scripts/spotlights.js"></script>
   <script>
-    // Display last modified date
-    document.getElementById('last-modified').textContent = `Last Modified: ${document.lastModified}`;
+    // Display last modified date and year
+    document.getElementById('last-modified').textContent = document.lastModified;
+    document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
