@@ -175,3 +175,64 @@ footer p {
     grid-template-columns: 1fr;
   }
 }
+/* Navigation Styles */   bbbbbbbb
+.nav {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-around; /* Distribute links evenly */
+  background-color: #3498db;
+  padding: 10px 0;
+}
+
+.nav a {
+  color: #ffffff;
+  text-decoration: none;
+  padding: 10px 20px;
+  flex: 1; /* Make each link take equal space */
+  text-align: center;
+  border-right: 1px solid #ffffff; /* Add a separator between links */
+}
+
+.nav a:last-child {
+  border-right: none; /* Remove separator for the last link */
+}
+
+.nav a.active {
+  font-weight: bold;
+  background-color: #2ecc71; /* Highlight the active link */
+}
+
+/* Weather Section */
+.weather {
+  padding: 20px;
+  background-color: #ffffff;
+  margin: 20px 0;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  overflow-x: auto; /* Enable horizontal scrolling if needed */
+}
+
+#weather-data {
+  display: flex;
+  gap: 20px;
+  padding: 10px;
+}
+
+.weather-card {
+  flex: 1; /* Make each card take equal space */
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  text-align: center;
+  min-width: 150px; /* Set a minimum width for each card */
+}
+
+.weather-card img {
+  width: 50px;
+  height: 50px;
+}
+
+.weather-card p {
+  margin: 5px 0;
+}
