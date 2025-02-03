@@ -1,5 +1,5 @@
-const apiKey = 'sk-40d34c0f669f4c82aeee91bd3721a983'; // Replace with yo ur actual API key
-const city = 'Nairobi'; // Set the city to Nairobi, Kenya
+const apiKey = '831a707e5ceb73c0ddb0a8f333a08cd9'; 
+const city = 'Nairobi'; 
 const url = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
 
 fetch(url)
@@ -10,42 +10,44 @@ fetch(url)
     return response.json();
   })
   .then(data => {
-    // Extract current weather data
+    
     const currentWeather = data.list[0];
-    const currentTemp = Math.round(currentWeather.main.temp); // Round temperature to whole number
-    const weatherDescription = currentWeather.weather.map(event => event.description).join(', '); // Handle multiple weather events
-    const icon = currentWeather.weather[0].icon; // Weather icon code
+    const currentTemp = Math.round(currentWeather.main.temp); 
+    const weatherDescription = currentWeather.weather.map(event => event.description).join(', '); 
+    const icon = currentWeather.weather[0].icon; 
 
-    // Extract 3-day forecast data
+    
     const forecast = data.list
-      .filter((item, index) => index % 8 === 0) // Get one forecast per day
-      .slice(0, 3) // Limit to 3 days
+      .filter((item, index) => index % 8 === 0) 
+      .slice(0, 3) 
       .map(day => ({
-        date: new Date(day.dt * 1000).toLocaleDateString('en-US', { weekday: 'short' }), // Format date as "Mon", "Tue", etc.
-        temp: Math.round(day.main.temp), // Round temperature to whole number
-        icon: day.weather[0].icon, // Weather icon code
+        date: new Date(day.dt * 1000).toLocaleDateString('en-US', { weekday: 'short' }), 
+        temp: Math.round(day.main.temp), 
+        icon: day.weather[0].icon, 
+        description: day.weather[0].description, 
       }));
 
-    // Generate HTML for weather section
-    const weatherHTML = `
-      <div class="current-weather">
+    
+    const currentWeatherHTML = `
+      <div class="weather-card">
         <img src="https://openweathermap.org/img/wn/${icon}@2x.png" alt="${weatherDescription}">
-        <p>${currentTemp}°C</p>
         <p>${weatherDescription}</p>
-      </div>
-      <div class="forecast">
-        ${forecast.map(day => `
-          <div class="forecast-day">
-            <p>${day.date}</p>
-            <img src="https://openweathermap.org/img/wn/${day.icon}@2x.png" alt="${weatherDescription}">
-            <p>${day.temp}°C</p>
-          </div>
-        `).join('')}
+        <p>${currentTemp}°C</p>
       </div>
     `;
 
-    // Insert weather HTML into the page
-    document.getElementById('weather-data').innerHTML = weatherHTML;
+    
+    const forecastHTML = forecast.map(day => `
+      <div class="weather-card">
+        <p>${day.date}</p>
+        <img src="https://openweathermap.org/img/wn/${day.icon}@2x.png" alt="${day.description}">
+        <p>${day.description}</p>
+        <p>${day.temp}°C</p>
+      </div>
+    `).join('');
+
+    
+    document.getElementById('weather-data').innerHTML = currentWeatherHTML + forecastHTML;
   })
   .catch(error => {
     console.error('Error fetching weather data:', error);
