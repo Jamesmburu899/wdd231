@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thank You - Timbuktu Chamber of Commerce</title>
+  <link rel="icon" href="images/favicon.png">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>Timbuktu Chamber of Commerce</h1>
+      <nav>
+        <ul class="nav">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="discover.html">Discover</a></li>
+          <li><a href="directory.html">Directory</a></li>
+          <li><a href="join.html">Join</a></li>
+          <li><a href="events.html">Events</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <h2>Thank You for Joining!</h2>
+    <p>Your membership application has been submitted successfully. Here is the information you provided:</p>
+    <div id="thank-you-info"></div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; <span id="year"></span> Timbuktu Chamber of Commerce. All Rights Reserved.</p>
+      <p>WDD 231 | Last Updated: <span id="last-modified"></span></p>
+    </div>
+  </footer>
+  <script>
+   
+    const urlParams = new URLSearchParams(window.location.search);
+    const formData = {
+      'First Name': urlParams.get('first-name'),
+      'Last Name': urlParams.get('last-name'),
+      'Email': urlParams.get('email'),
+      'Phone': urlParams.get('phone'),
+      'Business Name': urlParams.get('business-name'),
+      'Date Submitted': urlParams.get('timestamp')
+    };
+
+    let infoHTML = '';
+    for (const key in formData) {
+      infoHTML += `<p><strong>${key}:</strong> ${formData[key]}</p>`;
+    }
+
+    document.getElementById('thank-you-info').innerHTML = infoHTML;
+
+ 
+    document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById('last-modified').textContent = document.lastModified;
+  </script>
+  <script src="js/javascripts.js" defer></script>
+</body>
+</html>
+

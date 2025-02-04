@@ -1,4 +1,4 @@
-// Get current year
+// Get current year 
 const currentYear = new Date().getFullYear();
 document.getElementById('year').innerHTML = currentYear;
 
@@ -54,3 +54,54 @@ document.getElementById('list-view').addEventListener('click', () => {
 // Initialize display
 displayMembers();
 
+// Display form data on the thank you page
+const urlParams = new URLSearchParams(window.location.search);
+const formData = {
+  'First Name': urlParams.get('first-name'),
+  'Last Name': urlParams.get('last-name'),
+  'Email': urlParams.get('email'),
+  'Phone': urlParams.get('phone'),
+  'Business Name': urlParams.get('business-name'),
+  'Date Submitted': urlParams.get('timestamp')
+};
+
+let infoHTML = '';
+for (const key in formData) {
+  infoHTML += `<p><strong>${key}:</strong> ${formData[key]}</p>`;
+}
+
+document.getElementById('thank-you-info').innerHTML = infoHTML;
+
+// Set the current year and last modified date
+// This section is already set above, so it's redundant and can be removed
+// document.getElementById('year').textContent = new Date().getFullYear();
+// document.getElementById('last-modified').textContent = document.lastModified;
+
+// Populate timestamp hidden field
+document.getElementById('timestamp').value = new Date().toISOString();
+
+// Modal functionality
+document.querySelectorAll('.modal-link').forEach(function (link) {
+  link.addEventListener('click', function (e) {
+    e.preventDefault();
+    var modalId = this.getAttribute('href').substring(1);
+    var modal = document.getElementById(modalId);
+    if (modal) {
+      modal.style.display = 'block';
+    }
+  });
+});
+
+// Close modal
+document.querySelectorAll('.close').forEach(function (closeButton) {
+  closeButton.addEventListener('click', function () {
+    this.closest('.modal').style.display = 'none';
+  });
+});
+
+// Add animation class to cards after page load
+window.addEventListener('load', function () {
+  document.querySelectorAll('.card').forEach(function (card) {
+    card.classList.add('loaded');
+  });
+});
