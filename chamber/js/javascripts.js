@@ -36,7 +36,7 @@ async function displayMembers() {
   });
 }
 
-// Toggle view
+// Toggle view between grid and list
 document.getElementById('grid-view').addEventListener('click', () => {
   document.getElementById('directory').classList.add('grid');
   document.getElementById('directory').classList.remove('list');
@@ -51,7 +51,7 @@ document.getElementById('list-view').addEventListener('click', () => {
   document.getElementById('grid-view').classList.remove('active');
 });
 
-// Initialize display
+// Initialize the display of members
 displayMembers();
 
 // Display form data on the thank you page
@@ -72,15 +72,10 @@ for (const key in formData) {
 
 document.getElementById('thank-you-info').innerHTML = infoHTML;
 
-// Set the current year and last modified date
-// This section is already set above, so it's redundant and can be removed
-// document.getElementById('year').textContent = new Date().getFullYear();
-// document.getElementById('last-modified').textContent = document.lastModified;
-
 // Populate timestamp hidden field
 document.getElementById('timestamp').value = new Date().toISOString();
 
-// Modal functionality
+// Modal functionality to open and close modals
 document.querySelectorAll('.modal-link').forEach(function (link) {
   link.addEventListener('click', function (e) {
     e.preventDefault();
