@@ -20,49 +20,65 @@ document.addEventListener('DOMContentLoaded', function () {
       name: "Timbuktu Market",
       address: "123 Market St, Timbuktu",
       description: "A bustling marketplace offering local crafts, spices, and goods.",
-      image: "images/market.webp"
+      image: "images/market.webp",
+      width: 400, // Explicit width
+      height: 300 // Explicit height
     },
     {
       name: "Sankore Mosque",
       address: "456 Mosque Rd, Timbuktu",
       description: "A historic mosque and center of Islamic learning.",
-      image: "images/mosque.webp"
+      image: "images/mosque.webp",
+      width: 400,
+      height: 300
     },
     {
       name: "Timbuktu Library",
       address: "789 Knowledge Ave, Timbuktu",
       description: "Home to ancient manuscripts and scholarly works.",
-      image: "images/library.webp"
+      image: "images/library.webp",
+      width: 400,
+      height: 300
     },
     {
       name: "Desert Oasis",
       address: "101 Oasis Dr, Timbuktu",
       description: "A serene escape with natural springs and palm trees.",
-      image: "images/oasis.webp"
+      image: "images/oasis.webp",
+      width: 400,
+      height: 300
     },
     {
       name: "Cultural Museum",
       address: "202 Heritage Ln, Timbuktu",
       description: "Explore the rich history and culture of Timbuktu.",
-      image: "images/museum.webp"
+      image: "images/museum.webp",
+      width: 400,
+      height: 300
     },
     {
       name: "Festival Grounds",
       address: "303 Celebration Blvd, Timbuktu",
       description: "Host to annual cultural festivals and events.",
-      image: "images/festival.webp"
+      image: "images/festival.webp",
+      width: 400,
+      height: 300
     },
     {
       name: "Artisan Village",
       address: "404 Craft St, Timbuktu",
       description: "Discover handmade crafts and traditional art.",
-      image: "images/artisan.webp"
+      image: "images/artisan.webp",
+      width: 400,
+      height: 300
     },
     {
       name: "Sunset Dunes",
       address: "505 Dune Rd, Timbuktu",
       description: "Experience breathtaking sunsets over the Sahara.",
-      image: "images/dunes.webp"
+      image: "images/dunes.webp",
+      width: 400,
+      height: 300
     }
   ];
 
@@ -70,6 +86,7 @@ document.addEventListener('DOMContentLoaded', function () {
   function createCards() {
     const gridContainer = document.querySelector('.grid-container');
     if (gridContainer) {
+      gridContainer.style.minHeight = "800px"; // Reserve space for cards
       attractions.forEach(attraction => {
         const card = document.createElement('div');
         card.classList.add('card');
@@ -81,7 +98,9 @@ document.addEventListener('DOMContentLoaded', function () {
         const image = document.createElement('img');
         image.src = attraction.image;
         image.alt = attraction.name;
-        image.loading = "lazy";
+        image.width = attraction.width; // Explicit width
+        image.height = attraction.height; // Explicit height
+        image.loading = "lazy"; // Lazy load below-the-fold images
         figure.appendChild(image);
 
         const address = document.createElement('address');
@@ -132,7 +151,7 @@ document.addEventListener('DOMContentLoaded', function () {
           <p>${member.address}</p>
           <p>${member.phone}</p>
           <p><a href="${member.website}" target="_blank">${member.website}</a></p>
-          <img src="images/${member.image}" alt="${member.name}">
+          <img src="images/${member.image}" alt="${member.name}" width="100" height="100">
         `;
         directory.appendChild(memberCard);
       });
