@@ -128,22 +128,30 @@ async function displayMembers() {
 }
 
 // Toggle view between grid and list
-document.getElementById('grid-view').addEventListener('click', () => {
-  document.getElementById('directory').classList.add('grid');
-  document.getElementById('directory').classList.remove('list');
-  document.getElementById('grid-view').classList.add('active');
-  document.getElementById('list-view').classList.remove('active');
-});
+document.addEventListener('DOMContentLoaded', function () {
+  const gridViewButton = document.getElementById('grid-view');
+  const listViewButton = document.getElementById('list-view');
 
-document.getElementById('list-view').addEventListener('click', () => {
-  document.getElementById('directory').classList.add('list');
-  document.getElementById('directory').classList.remove('grid');
-  document.getElementById('list-view').classList.add('active');
-  document.getElementById('grid-view').classList.remove('active');
-});
+  // Ensure the elements exist before adding event listeners
+  if (gridViewButton && listViewButton) {
+    gridViewButton.addEventListener('click', () => {
+      document.getElementById('directory').classList.add('grid');
+      document.getElementById('directory').classList.remove('list');
+      gridViewButton.classList.add('active');
+      listViewButton.classList.remove('active');
+    });
 
-// Initialize the display of members
-displayMembers();
+    listViewButton.addEventListener('click', () => {
+      document.getElementById('directory').classList.add('list');
+      document.getElementById('directory').classList.remove('grid');
+      listViewButton.classList.add('active');
+      gridViewButton.classList.remove('active');
+    });
+  }
+
+  // Initialize the display of members
+  displayMembers();
+});
 
 // Display form data on the thank you page
 const urlParams = new URLSearchParams(window.location.search);
