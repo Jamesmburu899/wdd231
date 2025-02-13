@@ -191,4 +191,3 @@ window.addEventListener('load', function () {
     card.classList.add('loaded');
   });
 });
-
