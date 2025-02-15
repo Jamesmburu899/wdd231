@@ -29,19 +29,30 @@
         <section id="feedback">
             <h2>We'd Love to Hear From You!</h2>
             <form id="feedback-form">
-                <label for="rating-value">Rate our website:</label>
-                <div id="rating">
-                    <span class="star" data-value="1">★</span>
-                    <span class="star" data-value="2">★</span>
-                    <span class="star" data-value="3">★</span>
-                    <span class="star" data-value="4">★</span>
-                    <span class="star" data-value="5">★</span>
+                <!-- Rating Section -->
+                <div class="rating-section">
+                    <label>Rate our website:</label>
+                    <div id="rating">
+                        <span class="star" data-value="1">★</span>
+                        <span class="star" data-value="2">★</span>
+                        <span class="star" data-value="3">★</span>
+                        <span class="star" data-value="4">★</span>
+                        <span class="star" data-value="5">★</span>
+                    </div>
+                    <input type="hidden" id="rating-value" name="rating">
                 </div>
-                <input type="hidden" id="rating-value" name="rating">
-                <label for="feedback-text">Your Feedback:</label>
-                <textarea id="feedback-text" name="feedback" placeholder="Write your feedback..." required></textarea>
+
+                <!-- Feedback Textarea -->
+                <div class="feedback-section">
+                    <label for="feedback-text">Your Feedback:</label>
+                    <textarea id="feedback-text" name="feedback" placeholder="Write your feedback..." required></textarea>
+                </div>
+
+                <!-- Submit Button -->
                 <button type="submit" class="submit-button">Submit Feedback</button>
             </form>
+
+            <!-- Thank You Message -->
             <div id="thank-you-message" style="display: none;">
                 <p>Thank you for your feedback! We appreciate your input.</p>
             </div>
