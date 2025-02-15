@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Existing code for current year, time, and last modified date
+  // current year, time, and last modified date
     const currentYearElement = document.getElementById("current-year");
     const currentTimeElement = document.getElementById("current-time");
 
@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
         lastModifiedElement.textContent = formattedDate;
     }
 
-    // Existing code for search functionality
+    // for search functionality
     const searchInput = document.querySelector('#search-input');
     const searchButton = document.querySelector('#search-button');
 
@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Existing code for product reviews
+    // for product reviews
     const submitButtons = document.querySelectorAll('.submit-review');
 
     submitButtons.forEach(button => {
@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
         container.innerHTML = reviews.map(review => `<p>${review}</p>`).join('');
     });
 
-    // Existing code for rendering products
+    //  for rendering products
     const products = [
         // Your product data here...
     ];
@@ -120,7 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // New Code: Star Rating System
+    // Star Rating System
     const stars = document.querySelectorAll('.star');
     const ratingValue = document.getElementById('rating-value');
 
@@ -158,7 +158,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // New Code: Feedback Form Submission
+    //  Feedback Form Submission
     const feedbackForm = document.getElementById('feedback-form');
     const thankYouMessage = document.getElementById('thank-you-message');
 
@@ -179,7 +179,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
-            // Simulate form submission (replace with actual API call if needed)
+            // Simulate form submission 
             setTimeout(() => {
                 feedbackForm.reset(); // Reset form
                 stars.forEach(star => star.classList.remove('selected')); // Reset stars
@@ -188,7 +188,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // New Code: Contact Form Submission
+    // Contact Form Submission
     const contactForm = document.getElementById('contact-form');
     const successMessage = document.createElement('div');
     successMessage.id = 'success-message';
@@ -222,7 +222,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
-            // Simulate form submission (replace with actual API call if needed)
+            // Simulate form submission 
             setTimeout(() => {
                 contactForm.reset(); // Reset form
                 successMessage.style.display = 'block'; // Show success message
