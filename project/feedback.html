@@ -6,7 +6,8 @@
     <meta name="description" content="Provide feedback on eco-friendly products">
     <title>Eco-Friendly Lifestyle Guide - Feedback</title>
     <link rel="stylesheet" href="styles.css">
-    
+    <!-- Font Awesome Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
 </head>
 <body>
     <header>
@@ -28,7 +29,7 @@
         <section id="feedback">
             <h2>We'd Love to Hear From You!</h2>
             <form id="feedback-form">
-                <label for="rating">Rate our website:</label>
+                <label for="rating-value">Rate our website:</label>
                 <div id="rating">
                     <span class="star" data-value="1">★</span>
                     <span class="star" data-value="2">★</span>
@@ -36,7 +37,7 @@
                     <span class="star" data-value="4">★</span>
                     <span class="star" data-value="5">★</span>
                 </div>
-                <input type="hidden" id="rating-value" name="rating" required>
+                <input type="hidden" id="rating-value" name="rating">
                 <label for="feedback-text">Your Feedback:</label>
                 <textarea id="feedback-text" name="feedback" placeholder="Write your feedback..." required></textarea>
                 <button type="submit" class="submit-button">Submit Feedback</button>
@@ -65,7 +66,6 @@
                 <i class="fab fa-youtube"></i>
             </a>
         </div>
-    </div>
     </footer>
 
     <script src="script.js"></script>
